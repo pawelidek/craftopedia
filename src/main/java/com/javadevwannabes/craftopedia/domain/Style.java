@@ -1,9 +1,16 @@
 package com.javadevwannabes.craftopedia.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -12,20 +19,31 @@ import javax.validation.constraints.NotNull;
 public class Style {
 
   @Id
+  @Column(name = "style_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
   @NotNull
-  private String name;
+  private String styleName;
 
-  private String shortName;
+  private String styleShortName;
 
-  private String description;
+  private String styleDescription;
 
-  public Style(@NotNull String name, String shortName, String description) {
-    this.name = name;
-    this.shortName = shortName;
-    this.description = description;
+  @OneToMany(mappedBy = "styles", cascade = CascadeType.ALL)
+  private List<Beer> beers = new ArrayList<>();
+
+  @ManyToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "category_id")
+  private Category category;
+
+  public Style(@NotNull String styleName, String styleShortName, String styleDescription,
+      List<Beer> beers, Category category) {
+    this.styleName = styleName;
+    this.styleShortName = styleShortName;
+    this.styleDescription = styleDescription;
+    this.beers = beers;
+    this.category = category;
   }
 
   public int getId() {
@@ -36,27 +54,43 @@ public class Style {
     this.id = id;
   }
 
-  public String getName() {
-    return name;
+  public String getStyleName() {
+    return styleName;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setStyleName(String styleName) {
+    this.styleName = styleName;
   }
 
-  public String getShortName() {
-    return shortName;
+  public String getStyleShortName() {
+    return styleShortName;
   }
 
-  public void setShortName(String shortName) {
-    this.shortName = shortName;
+  public void setStyleShortName(String styleShortName) {
+    this.styleShortName = styleShortName;
   }
 
-  public String getDescription() {
-    return description;
+  public String getStyleDescription() {
+    return styleDescription;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setStyleDescription(String styleDescription) {
+    this.styleDescription = styleDescription;
+  }
+
+  public List<Beer> getBeers() {
+    return beers;
+  }
+
+  public void setBeers(List<Beer> beers) {
+    this.beers = beers;
+  }
+
+  public Category getCategory() {
+    return category;
+  }
+
+  public void setCategory(Category category) {
+    this.category = category;
   }
 }

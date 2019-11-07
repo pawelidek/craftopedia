@@ -1,9 +1,12 @@
 package com.javadevwannabes.craftopedia.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -32,8 +35,21 @@ public class Beer {
 
   private String largeIconURL;
 
+  @ManyToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "category_id")
+  private Category category;
+
+  @ManyToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "style_id")
+  private Style style;
+
+  @ManyToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "glass_id")
+  private Glass glass;
+
   public Beer(@NotNull String name, String description, double abv, boolean isOrganic,
-      boolean isRetired, String smallIconURL, String mediumIconURL, String largeIconURL) {
+      boolean isRetired, String smallIconURL, String mediumIconURL, String largeIconURL,
+      Category category, Style style, Glass glass) {
     this.name = name;
     this.description = description;
     this.abv = abv;
@@ -42,6 +58,9 @@ public class Beer {
     this.smallIconURL = smallIconURL;
     this.mediumIconURL = mediumIconURL;
     this.largeIconURL = largeIconURL;
+    this.category = category;
+    this.style = style;
+    this.glass = glass;
   }
 
   public Long getId() {
@@ -114,5 +133,29 @@ public class Beer {
 
   public void setLargeIconURL(String largeIconURL) {
     this.largeIconURL = largeIconURL;
+  }
+
+  public Category getCategory() {
+    return category;
+  }
+
+  public void setCategory(Category category) {
+    this.category = category;
+  }
+
+  public Style getStyle() {
+    return style;
+  }
+
+  public void setStyle(Style style) {
+    this.style = style;
+  }
+
+  public Glass getGlass() {
+    return glass;
+  }
+
+  public void setGlass(Glass glass) {
+    this.glass = glass;
   }
 }
