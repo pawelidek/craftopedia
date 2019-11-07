@@ -1,4 +1,4 @@
-package com.javadevwannabes.craftopedia;
+package com.javadevwannabes.craftopedia.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
