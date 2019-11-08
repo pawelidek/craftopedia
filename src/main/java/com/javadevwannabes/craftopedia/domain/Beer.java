@@ -63,6 +63,9 @@ public class Beer {
     this.glass = glass;
   }
 
+  public Beer() {
+  }
+
   public Long getId() {
     return id;
   }

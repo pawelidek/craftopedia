@@ -1,6 +1,5 @@
 package com.javadevwannabes.craftopedia.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -24,17 +23,20 @@ public class Category {
   @NotNull
   private String name;
 
-  @OneToMany(mappedBy = "categories", cascade = CascadeType.ALL)
-  private List<Beer> beers = new ArrayList<>();
+  @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+  private List<Beer> beers;
 
-  @OneToMany(mappedBy = "categories", cascade = CascadeType.ALL)
-  private List<Style> styles = new ArrayList<>();
+  @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+  private List<Style> styles;
 
   public Category(@NotNull String name,
       List<Beer> beers, List<Style> styles) {
     this.name = name;
     this.beers = beers;
     this.styles = styles;
+  }
+
+  public Category() {
   }
 
   public int getId() {
