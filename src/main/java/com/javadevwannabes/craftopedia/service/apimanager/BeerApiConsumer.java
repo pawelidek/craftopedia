@@ -38,24 +38,32 @@ public class BeerApiConsumer {
 
   public void consume() throws IOException {
 
-    init();
-    logger.info("API response prepared");
-    Response response = webTarget.request().get();
-    String resp = response.readEntity(String.class);
-
-    List<BeerResponse> beerList = parserService.parseBeersFromAPI(resp);
-    loadDataToDatabase(beerList);
-  }
-
-  private void init() {
-    logger.info("API consumer started");
+    Integer lastPage = checkLastPage();
     Client client = ClientBuilder.newClient();
 
+    for (int i = 1; i <= lastPage; i++) {
+      webTarget = client.target(URI).queryParam("key", APIKEY).queryParam("p", i);
+      logger.info("* API response for page '{}' prepared", i);
+      Response response = webTarget.request().get();
+      String resp = response.readEntity(String.class);
+
+      List<BeerResponse> beerList = parserService.parseBeersFromAPI(resp);
+      loadDataToDatabase(beerList);
+    }
+  }
+
+  private Integer checkLastPage() throws IOException {
+    Client client = ClientBuilder.newClient();
     webTarget = client.target(URI).queryParam("key", APIKEY);
+    Response response = webTarget.request().get();
+    String resp = response.readEntity(String.class);
+    Integer lastPage = parserService.findLastPage(resp);
+    logger.info("Overall number of API pages = '{}'", lastPage);
+    return lastPage;
   }
 
   private void loadDataToDatabase(List<BeerResponse> beerList) {
-    logger.info("Load beers to DB");
+    logger.info("Loading beers to DB");
     List<Beer> beers = beerMapper.mapApiToEntity(beerList);
     beers.forEach(beer -> beerRepository.save(beer));
   }

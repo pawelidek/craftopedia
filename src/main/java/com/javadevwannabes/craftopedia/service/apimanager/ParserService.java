@@ -34,13 +34,23 @@ public class ParserService {
         });
   }
 
-  public List<BeerResponse> parseBeersFromAPI(String beersFile) throws IOException {
+  public List<BeerResponse> parseBeersFromAPI(String beers) throws IOException {
 
     logger.info("Parsing data from API");
-    JsonNode jsonNode = objectMapper.readTree(beersFile);
+    JsonNode jsonNode = objectMapper.readTree(beers);
 
     return objectMapper.readValue(jsonNode.get("data").toString(),
         new TypeReference<List<BeerResponse>>() {
+        });
+  }
+
+  public Integer findLastPage(String beers) throws IOException {
+
+    logger.info("* Checking number of API pages");
+    JsonNode jsonNode = objectMapper.readTree(beers);
+
+    return objectMapper.readValue(jsonNode.get("numberOfPages").toString(),
+        new TypeReference<Integer>() {
         });
   }
 }

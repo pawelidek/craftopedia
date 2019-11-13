@@ -20,6 +20,16 @@ public class BeerMapper {
     beerList.forEach(beerApi -> {
       Beer beer = new Beer();
       beer.setName(beerApi.getName());
+      beer.setDescription(beerApi.getDescription());
+      beer.setAbv(beerApi.getAbv());
+      beer.setOrganic(beerApi.isOrganic());
+      beer.setRetired(beerApi.isRetired());
+      beer.setSmallIconURL(beerApi.getSmallIconURL());
+      beer.setMediumIconURL(beerApi.getMediumIconURL());
+      beer.setLargeIconURL(beerApi.getLargeIconURL());
+      beer.setCategory(beerApi.getCategory());
+      beer.setStyle(beerApi.getStyle());
+      beer.setGlass(beerApi.getGlass());
       beers.add(beer);
     });
 
