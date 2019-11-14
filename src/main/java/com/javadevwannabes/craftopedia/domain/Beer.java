@@ -27,9 +27,9 @@ public class Beer {
 
   private double abv;
 
-  private boolean isOrganic;
-
-  private boolean isRetired;
+//  private boolean isOrganic;
+//
+//  private boolean isRetired;
 
   private String smallIconURL;
 
@@ -57,8 +57,8 @@ public class Beer {
     this.name = name;
     this.description = description;
     this.abv = abv;
-    this.isOrganic = isOrganic;
-    this.isRetired = isRetired;
+//    this.isOrganic = isOrganic;
+//    this.isRetired = isRetired;
     this.smallIconURL = smallIconURL;
     this.mediumIconURL = mediumIconURL;
     this.largeIconURL = largeIconURL;
@@ -102,21 +102,21 @@ public class Beer {
     this.abv = abv;
   }
 
-  public boolean isOrganic() {
-    return isOrganic;
-  }
-
-  public void setOrganic(boolean organic) {
-    isOrganic = organic;
-  }
-
-  public boolean isRetired() {
-    return isRetired;
-  }
-
-  public void setRetired(boolean retired) {
-    isRetired = retired;
-  }
+//  public boolean isOrganic() {
+//    return isOrganic;
+//  }
+//
+//  public void setOrganic(boolean organic) {
+//    isOrganic = organic;
+//  }
+//
+//  public boolean isRetired() {
+//    return isRetired;
+//  }
+//
+//  public void setRetired(boolean retired) {
+//    isRetired = retired;
+//  }
 
   public String getSmallIconURL() {
     return smallIconURL;

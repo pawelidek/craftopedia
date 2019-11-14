@@ -19,11 +19,11 @@ public class BeerResponse {
   @JsonProperty("abv")
   private double abv;
 
-  @JsonProperty("isOrganic")
-  private boolean isOrganic;
-
-  @JsonProperty("isRetired")
-  private boolean isRetired;
+//  @JsonProperty("isOrganic")
+//  private boolean isOrganic;
+//
+//  @JsonProperty("isRetired")
+//  private boolean isRetired;
 
   @JsonProperty("smallIconURL")
   private String smallIconURL;
@@ -67,21 +67,21 @@ public class BeerResponse {
     this.abv = abv;
   }
 
-  public boolean isOrganic() {
-    return isOrganic;
-  }
-
-  public void setOrganic(boolean organic) {
-    isOrganic = organic;
-  }
-
-  public boolean isRetired() {
-    return isRetired;
-  }
-
-  public void setRetired(boolean retired) {
-    isRetired = retired;
-  }
+//  public boolean isOrganic() {
+//    return isOrganic;
+//  }
+//
+//  public void setOrganic(boolean organic) {
+//    isOrganic = organic;
+//  }
+//
+//  public boolean isRetired() {
+//    return isRetired;
+//  }
+//
+//  public void setRetired(boolean retired) {
+//    isRetired = retired;
+//  }
 
   public String getSmallIconURL() {
     return smallIconURL;
@@ -137,8 +137,8 @@ public class BeerResponse {
         "name='" + name + '\'' +
         ", description='" + description + '\'' +
         ", abv=" + abv +
-        ", isOrganic=" + isOrganic +
-        ", isRetired=" + isRetired +
+//        ", isOrganic=" + isOrganic +
+//        ", isRetired=" + isRetired +
         ", smallIconURL='" + smallIconURL + '\'' +
         ", mediumIconURL='" + mediumIconURL + '\'' +
         ", largeIconURL='" + largeIconURL + '\'' +

@@ -22,8 +22,8 @@ public class BeerMapper {
       beer.setName(beerApi.getName());
       beer.setDescription(beerApi.getDescription());
       beer.setAbv(beerApi.getAbv());
-      beer.setOrganic(beerApi.isOrganic());
-      beer.setRetired(beerApi.isRetired());
+//      beer.setOrganic(beerApi.isOrganic());
+//      beer.setRetired(beerApi.isRetired());
       beer.setSmallIconURL(beerApi.getSmallIconURL());
       beer.setMediumIconURL(beerApi.getMediumIconURL());
       beer.setLargeIconURL(beerApi.getLargeIconURL());
