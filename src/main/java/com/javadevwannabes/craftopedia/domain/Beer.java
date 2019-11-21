@@ -17,53 +17,60 @@ public class Beer {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
   private Long id;
 
   @NotNull
+  @Column(name = "name")
   private String name;
 
-  @Column(columnDefinition = "text")
+  @Column(name = "description", columnDefinition = "text")
   private String description;
 
-  private double abv;
-
+//  private double abv;
+//
 //  private boolean isOrganic;
 //
 //  private boolean isRetired;
+//
+//  private String smallIconURL;
+//
+//  private String mediumIconURL;
+//
+//  private String largeIconURL;
 
-  private String smallIconURL;
+//  @ManyToOne(cascade = CascadeType.ALL)
+//  @JoinColumn(name = "category_id")
+//  private Category category;
+//
+//  @ManyToOne(cascade = CascadeType.ALL)
+//  @JoinColumn(name = "style_id")
+//  private Style style;
 
-  private String mediumIconURL;
-
-  private String largeIconURL;
-
-  @ManyToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "category_id")
-  private Category category;
-
-  @ManyToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "style_id")
-  private Style style;
-
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
+      CascadeType.DETACH})
   @JoinColumn(name = "glass_id")
   private Glass glass;
 
-  public Beer(@NotNull String name, String description, double abv, boolean isOrganic,
-      boolean isRetired, String smallIconURL, String mediumIconURL, String largeIconURL
+  public Beer(@NotNull String name, String description
+//      , double abv, boolean isOrganic,
+//      boolean isRetired, String smallIconURL, String mediumIconURL, String largeIconURL
+//      ,
+//      Category category,
+//      Style style
       ,
-      Category category, Style style, Glass glass
+      Glass glass
   ) {
     this.name = name;
     this.description = description;
-    this.abv = abv;
+//    this.abv = abv;
 //    this.isOrganic = isOrganic;
 //    this.isRetired = isRetired;
-    this.smallIconURL = smallIconURL;
-    this.mediumIconURL = mediumIconURL;
-    this.largeIconURL = largeIconURL;
-    this.category = category;
-    this.style = style;
+//    this.smallIconURL = smallIconURL;
+//    this.mediumIconURL = mediumIconURL;
+//    this.largeIconURL = largeIconURL;
+//    this.category = category;
+//    this.style = style;
     this.glass = glass;
   }
 
@@ -94,14 +101,14 @@ public class Beer {
     this.description = description;
   }
 
-  public double getAbv() {
-    return abv;
-  }
-
-  public void setAbv(double abv) {
-    this.abv = abv;
-  }
-
+//  public double getAbv() {
+//    return abv;
+//  }
+//
+//  public void setAbv(double abv) {
+//    this.abv = abv;
+//  }
+//
 //  public boolean isOrganic() {
 //    return isOrganic;
 //  }
@@ -117,46 +124,47 @@ public class Beer {
 //  public void setRetired(boolean retired) {
 //    isRetired = retired;
 //  }
+//
+//  public String getSmallIconURL() {
+//    return smallIconURL;
+//  }
+//
+//  public void setSmallIconURL(String smallIconURL) {
+//    this.smallIconURL = smallIconURL;
+//  }
+//
+//  public String getMediumIconURL() {
+//    return mediumIconURL;
+//  }
+//
+//  public void setMediumIconURL(String mediumIconURL) {
+//    this.mediumIconURL = mediumIconURL;
+//  }
+//
+//  public String getLargeIconURL() {
+//    return largeIconURL;
+//  }
+//
+//  public void setLargeIconURL(String largeIconURL) {
+//    this.largeIconURL = largeIconURL;
+//  }
+//
+//  public Category getCategory() {
+//    return category;
+//  }
+//
+//  public void setCategory(Category category) {
+//    this.category = category;
+//  }
+//
+//  public Style getStyle() {
+//    return style;
+//  }
+//
+//  public void setStyle(Style style) {
+//    this.style = style;
+//  }
 
-  public String getSmallIconURL() {
-    return smallIconURL;
-  }
-
-  public void setSmallIconURL(String smallIconURL) {
-    this.smallIconURL = smallIconURL;
-  }
-
-  public String getMediumIconURL() {
-    return mediumIconURL;
-  }
-
-  public void setMediumIconURL(String mediumIconURL) {
-    this.mediumIconURL = mediumIconURL;
-  }
-
-  public String getLargeIconURL() {
-    return largeIconURL;
-  }
-
-  public void setLargeIconURL(String largeIconURL) {
-    this.largeIconURL = largeIconURL;
-  }
-
-  public Category getCategory() {
-    return category;
-  }
-
-  public void setCategory(Category category) {
-    this.category = category;
-  }
-
-  public Style getStyle() {
-    return style;
-  }
-
-  public void setStyle(Style style) {
-    this.style = style;
-  }
 
   public Glass getGlass() {
     return glass;

@@ -2,12 +2,11 @@ package com.javadevwannabes.craftopedia.domain.jsonapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.javadevwannabes.craftopedia.domain.Category;
+//import com.javadevwannabes.craftopedia.domain.Category;
 import com.javadevwannabes.craftopedia.domain.Glass;
-import com.javadevwannabes.craftopedia.domain.Style;
+//import com.javadevwannabes.craftopedia.domain.Style;
 
-@JsonIgnoreProperties({"id", "nameDisplay", "glasswareId", "styleId", "status", "statusDisplay",
-    "createDate", "updateDate"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BeerResponse {
 
   @JsonProperty("name")
@@ -15,30 +14,30 @@ public class BeerResponse {
 
   @JsonProperty("description")
   private String description;
-
-  @JsonProperty("abv")
-  private double abv;
-
+//
+//  @JsonProperty("abv")
+//  private double abv;
+//
 //  @JsonProperty("isOrganic")
 //  private boolean isOrganic;
 //
 //  @JsonProperty("isRetired")
 //  private boolean isRetired;
-
-  @JsonProperty("smallIconURL")
-  private String smallIconURL;
-
-  @JsonProperty("mediumIconURL")
-  private String mediumIconURL;
-
-  @JsonProperty("largeIconURL")
-  private String largeIconURL;
-
-  @JsonProperty("cat")
-  private Category category;
-
-  @JsonProperty("style")
-  private Style style;
+//
+//  @JsonProperty("smallIconURL")
+//  private String smallIconURL;
+//
+//  @JsonProperty("mediumIconURL")
+//  private String mediumIconURL;
+//
+//  @JsonProperty("largeIconURL")
+//  private String largeIconURL;
+//
+//  @JsonProperty("cat")
+//  private Category category;
+//
+//  @JsonProperty("style")
+//  private Style style;
 
   @JsonProperty("glass")
   private Glass glass;
@@ -58,15 +57,15 @@ public class BeerResponse {
   public void setDescription(String description) {
     this.description = description;
   }
-
-  public double getAbv() {
-    return abv;
-  }
-
-  public void setAbv(double abv) {
-    this.abv = abv;
-  }
-
+//
+//  public double getAbv() {
+//    return abv;
+//  }
+//
+//  public void setAbv(double abv) {
+//    this.abv = abv;
+//  }
+//
 //  public boolean isOrganic() {
 //    return isOrganic;
 //  }
@@ -82,46 +81,46 @@ public class BeerResponse {
 //  public void setRetired(boolean retired) {
 //    isRetired = retired;
 //  }
-
-  public String getSmallIconURL() {
-    return smallIconURL;
-  }
-
-  public void setSmallIconURL(String smallIconURL) {
-    this.smallIconURL = smallIconURL;
-  }
-
-  public String getMediumIconURL() {
-    return mediumIconURL;
-  }
-
-  public void setMediumIconURL(String mediumIconURL) {
-    this.mediumIconURL = mediumIconURL;
-  }
-
-  public String getLargeIconURL() {
-    return largeIconURL;
-  }
-
-  public void setLargeIconURL(String largeIconURL) {
-    this.largeIconURL = largeIconURL;
-  }
-
-  public Category getCategory() {
-    return category;
-  }
-
-  public void setCategory(Category category) {
-    this.category = category;
-  }
-
-  public Style getStyle() {
-    return style;
-  }
-
-  public void setStyle(Style style) {
-    this.style = style;
-  }
+//
+//  public String getSmallIconURL() {
+//    return smallIconURL;
+//  }
+//
+//  public void setSmallIconURL(String smallIconURL) {
+//    this.smallIconURL = smallIconURL;
+//  }
+//
+//  public String getMediumIconURL() {
+//    return mediumIconURL;
+//  }
+//
+//  public void setMediumIconURL(String mediumIconURL) {
+//    this.mediumIconURL = mediumIconURL;
+//  }
+//
+//  public String getLargeIconURL() {
+//    return largeIconURL;
+//  }
+//
+//  public void setLargeIconURL(String largeIconURL) {
+//    this.largeIconURL = largeIconURL;
+//  }
+//
+//  public Category getCategory() {
+//    return category;
+//  }
+//
+//  public void setCategory(Category category) {
+//    this.category = category;
+//  }
+//
+//  public Style getStyle() {
+//    return style;
+//  }
+//
+//  public void setStyle(Style style) {
+//    this.style = style;
+//  }
 
   public Glass getGlass() {
     return glass;
@@ -136,14 +135,14 @@ public class BeerResponse {
     return "BeerResponse{" +
         "name='" + name + '\'' +
         ", description='" + description + '\'' +
-        ", abv=" + abv +
+//        ", abv=" + abv +
 //        ", isOrganic=" + isOrganic +
 //        ", isRetired=" + isRetired +
-        ", smallIconURL='" + smallIconURL + '\'' +
-        ", mediumIconURL='" + mediumIconURL + '\'' +
-        ", largeIconURL='" + largeIconURL + '\'' +
-        ", category=" + category +
-        ", style=" + style +
+//        ", smallIconURL='" + smallIconURL + '\'' +
+//        ", mediumIconURL='" + mediumIconURL + '\'' +
+//        ", largeIconURL='" + largeIconURL + '\'' +
+//        ", category=" + category +
+//        ", style=" + style +
         ", glass=" + glass +
         '}';
   }

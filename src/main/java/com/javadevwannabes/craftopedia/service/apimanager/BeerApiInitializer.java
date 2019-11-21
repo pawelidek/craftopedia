@@ -12,8 +12,12 @@ public class BeerApiInitializer {
 
   private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
+  private final BeerApiConsumer beerApiConsumer;
+
   @Autowired
-  private BeerApiConsumer beerApiConsumer;
+  public BeerApiInitializer(BeerApiConsumer beerApiConsumer) {
+    this.beerApiConsumer = beerApiConsumer;
+  }
 
   @PostConstruct
   protected void init() {
