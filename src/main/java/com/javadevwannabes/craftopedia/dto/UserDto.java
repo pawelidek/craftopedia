@@ -1,8 +1,11 @@
-package com.javadevwannabes.craftopedia;
+package com.javadevwannabes.craftopedia.dto;
 
+import com.javadevwannabes.craftopedia.validation.PasswordMatches;
+import com.javadevwannabes.craftopedia.validation.ValidEmail;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+@PasswordMatches
 public class UserDto {
 
   @NotNull
@@ -15,9 +18,10 @@ public class UserDto {
 
   @NotNull
   @NotEmpty
-  private String passwortd;
-  private String machingPassword;
+  private String password;
+  private String matchingPassword;
 
+  @ValidEmail
   @NotNull
   @NotEmpty
   private String email;
@@ -38,20 +42,20 @@ public class UserDto {
     this.lastName = lastName;
   }
 
-  public String getPasswortd() {
-    return passwortd;
+  public String getPassword() {
+    return password;
   }
 
-  public void setPasswortd(String passwortd) {
-    this.passwortd = passwortd;
+  public void setPassword(String password) {
+    this.password = password;
   }
 
-  public String getMachingPassword() {
-    return machingPassword;
+  public String getMatchingPassword() {
+    return matchingPassword;
   }
 
-  public void setMachingPassword(String machingPassword) {
-    this.machingPassword = machingPassword;
+  public void setMatchingPassword(String matchingPassword) {
+    this.matchingPassword = matchingPassword;
   }
 
   public String getEmail() {
