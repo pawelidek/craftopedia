@@ -1,7 +1,8 @@
 package com.javadevwannabes.craftopedia.controller;
 
 
-import com.javadevwannabes.craftopedia.UserDto;
+import com.javadevwannabes.craftopedia.persistence.model.User;
+import com.javadevwannabes.craftopedia.dto.UserDto;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.slf4j.Logger;
@@ -29,9 +30,14 @@ public class RegistrationController {
     return "registration";
   }
 
+  @RequestMapping(value = "/user/registration", method = RequestMethod.POST)
   public ModelAndView registerUserAccount(
       @ModelAttribute("user") @Valid UserDto accountDto,
       BindingResult result, WebRequest request, Errors errors) {
+    User registered = new User();
+
     return new ModelAndView();
   }
+
+
 }

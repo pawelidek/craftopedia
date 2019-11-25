@@ -1,4 +1,4 @@
-package com.javadevwannabes.craftopedia.domain;
+package com.javadevwannabes.craftopedia.model;
 
 import java.util.List;
 import javax.persistence.CascadeType;

@@ -26,6 +26,8 @@ public class UserDto {
   @NotEmpty
   private String email;
 
+  private boolean isUsing2FA;
+
   public String getFirstName() {
     return firstName;
   }
@@ -64,5 +66,13 @@ public class UserDto {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public boolean isUsing2FA() {
+    return isUsing2FA;
+  }
+
+  public void setUsing2FA(boolean using2FA) {
+    isUsing2FA = using2FA;
   }
 }
