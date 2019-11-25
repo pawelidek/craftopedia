@@ -1,4 +1,4 @@
-package com.javadevwannabes.craftopedia.model;
+package com.javadevwannabes.craftopedia.persistence.model;
 
 import java.util.Collection;
 import javax.persistence.Column;
