@@ -2,11 +2,9 @@ package com.javadevwannabes.craftopedia.domain.jsonapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.javadevwannabes.craftopedia.domain.Beer;
-import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GlassResponse {
+public class CategoryResponse {
 
   @JsonProperty("name")
   private String name;
@@ -21,8 +19,8 @@ public class GlassResponse {
 
   @Override
   public String toString() {
-    return "GlassResponse{" +
-        "glassName='" + name + '\'' +
+    return "CategoryResponse{" +
+        "name='" + name + '\'' +
         '}';
   }
 }

@@ -1,11 +1,6 @@
 package com.javadevwannabes.craftopedia.service.apimanager;
 
-import com.javadevwannabes.craftopedia.domain.Beer;
-import com.javadevwannabes.craftopedia.domain.jsonapi.BeerResponse;
-import com.javadevwannabes.craftopedia.mapper.BeerMapper;
-import com.javadevwannabes.craftopedia.repository.BeerRepository;
 import java.io.IOException;
-import java.util.List;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -16,46 +11,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BeerApiConsumer {
+public class ApiConsumer {
 
   private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
-  private static final String APIKEY = "";
+  private static final String APIKEY = "1d1eec55b757670e7f01188b18aaecc1";
   private static final String URI = "https://sandbox-api.brewerydb.com/v2/beers/?";
+
   private WebTarget webTarget;
   private ParserService parserService;
-  private BeerMapper beerMapper;
-  private BeerRepository beerRepository;
 
   @Autowired
-  public BeerApiConsumer(
-      ParserService parserService, BeerMapper beerMapper,
-      BeerRepository beerRepository) {
+  public ApiConsumer(ParserService parserService) {
     this.parserService = parserService;
-    this.beerMapper = beerMapper;
-    this.beerRepository = beerRepository;
   }
 
-  public void consume() throws IOException {
+  public String consume() throws IOException {
 
     Integer lastPage = checkLastPage();
     Client client = ClientBuilder.newClient();
+    StringBuilder apiResponse = new StringBuilder();
 
-    for (int i = 1; i <= lastPage; i++) {
+    for (int i = 1; i <=
+//        lastPage
+        2
+        ; i++) {
       webTarget = client.target(URI).queryParam("key", APIKEY).queryParam("p", i);
       logger.info("* API response for page '{}' prepared", i);
       Response response = webTarget.request().get();
       String resp = response.readEntity(String.class);
       response.close();
-      List<BeerResponse> beerList = parserService.parseBeersFromAPI(resp);
-      loadDataToDatabase(beerList);
+      apiResponse.append(resp);
     }
-  }
-
-  private void loadDataToDatabase(List<BeerResponse> beerList) {
-    logger.info("Loading beers to DB");
-    List<Beer> beers = beerMapper.mapApiToEntity(beerList);
-    beers.forEach(beer -> beerRepository.save(beer));
+    return apiResponse.toString();
   }
 
   private Integer checkLastPage() throws IOException {

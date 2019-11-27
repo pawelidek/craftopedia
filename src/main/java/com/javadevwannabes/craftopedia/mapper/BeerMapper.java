@@ -29,7 +29,7 @@ public class BeerMapper {
 //      beer.setLargeIconURL(beerApi.getLargeIconURL());
 //      beer.setCategory(beerApi.getCategory());
 //      beer.setStyle(beerApi.getStyle());
-//      beer.setGlass(beerApi.getGlass());
+      beer.setGlass(beerApi.getGlass());
       beers.add(beer);
     });
 

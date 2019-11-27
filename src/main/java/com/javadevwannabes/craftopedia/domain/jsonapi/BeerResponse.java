@@ -2,6 +2,7 @@ package com.javadevwannabes.craftopedia.domain.jsonapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.javadevwannabes.craftopedia.domain.Glass;
 
 //import com.javadevwannabes.craftopedia.domain.Category;
 //import com.javadevwannabes.craftopedia.domain.Style;
@@ -38,9 +39,9 @@ public class BeerResponse {
 //
 //  @JsonProperty("style")
 //  private Style style;
-//
-//  @JsonProperty("glass")
-//  private Glass glass;
+
+  @JsonProperty("glass")
+  private Glass glass;
 
   public String getName() {
     return name;
@@ -121,14 +122,14 @@ public class BeerResponse {
 //  public void setStyle(Style style) {
 //    this.style = style;
 //  }
-//
-//  public Glass getGlass() {
-//    return glass;
-//  }
-//
-//  public void setGlass(Glass glass) {
-//    this.glass = glass;
-//  }
+
+  public Glass getGlass() {
+    return glass;
+  }
+
+  public void setGlass(Glass glass) {
+    this.glass = glass;
+  }
 
   @Override
   public String toString() {
@@ -143,7 +144,7 @@ public class BeerResponse {
 //        ", largeIconURL='" + largeIconURL + '\'' +
 //        ", category=" + category +
 //        ", style=" + style +
-//        ", glass=" + glass +
+        ", glass=" + glass +
         '}';
   }
 }
