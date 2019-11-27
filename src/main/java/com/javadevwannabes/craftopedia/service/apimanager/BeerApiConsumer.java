@@ -20,7 +20,7 @@ public class BeerApiConsumer {
 
   private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
-  private static final String APIKEY = "1d1eec55b757670e7f01188b18aaecc1";
+  private static final String APIKEY = "";
   private static final String URI = "https://sandbox-api.brewerydb.com/v2/beers/?";
   private WebTarget webTarget;
   private ParserService parserService;
@@ -41,10 +41,7 @@ public class BeerApiConsumer {
     Integer lastPage = checkLastPage();
     Client client = ClientBuilder.newClient();
 
-    for (int i = 1; i <=
-//        lastPage
-        2
-        ; i++) {
+    for (int i = 1; i <= lastPage; i++) {
       webTarget = client.target(URI).queryParam("key", APIKEY).queryParam("p", i);
       logger.info("* API response for page '{}' prepared", i);
       Response response = webTarget.request().get();

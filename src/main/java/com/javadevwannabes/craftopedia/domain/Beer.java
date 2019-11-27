@@ -1,13 +1,10 @@
 package com.javadevwannabes.craftopedia.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -27,8 +24,8 @@ public class Beer {
   @Column(name = "description", columnDefinition = "text")
   private String description;
 
-//  private double abv;
-//
+  private double abv;
+
 //  private boolean isOrganic;
 //
 //  private boolean isRetired;
@@ -39,31 +36,29 @@ public class Beer {
 //
 //  private String largeIconURL;
 
-//  @ManyToOne(cascade = CascadeType.ALL)
+  //  @ManyToOne(cascade = CascadeType.ALL)
 //  @JoinColumn(name = "category_id")
 //  private Category category;
 //
 //  @ManyToOne(cascade = CascadeType.ALL)
 //  @JoinColumn(name = "style_id")
 //  private Style style;
-
-  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
-      CascadeType.DETACH})
-  @JoinColumn(name = "glass_id")
-  private Glass glass;
-
-  public Beer(@NotNull String name, String description
-//      , double abv, boolean isOrganic,
-//      boolean isRetired, String smallIconURL, String mediumIconURL, String largeIconURL
-//      ,
+//
+//  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
+//      CascadeType.DETACH})
+//  @JoinColumn(name = "glass_id")
+//  private Glass glass;
+//
+  public Beer(@NotNull String name, String description, double abv
+//      ,boolean isOrganic,
+//      boolean isRetired, String smallIconURL, String mediumIconURL, String largeIconURL,
 //      Category category,
-//      Style style
-      ,
-      Glass glass
+//      Style style,
+//      Glass glass
   ) {
     this.name = name;
     this.description = description;
-//    this.abv = abv;
+    this.abv = abv;
 //    this.isOrganic = isOrganic;
 //    this.isRetired = isRetired;
 //    this.smallIconURL = smallIconURL;
@@ -71,7 +66,7 @@ public class Beer {
 //    this.largeIconURL = largeIconURL;
 //    this.category = category;
 //    this.style = style;
-    this.glass = glass;
+//    this.glass = glass;
   }
 
   public Beer() {
@@ -101,14 +96,14 @@ public class Beer {
     this.description = description;
   }
 
-//  public double getAbv() {
-//    return abv;
-//  }
-//
-//  public void setAbv(double abv) {
-//    this.abv = abv;
-//  }
-//
+  public double getAbv() {
+    return abv;
+  }
+
+  public void setAbv(double abv) {
+    this.abv = abv;
+  }
+
 //  public boolean isOrganic() {
 //    return isOrganic;
 //  }
@@ -165,12 +160,11 @@ public class Beer {
 //    this.style = style;
 //  }
 
-
-  public Glass getGlass() {
-    return glass;
-  }
-
-  public void setGlass(Glass glass) {
-    this.glass = glass;
-  }
+//  public Glass getGlass() {
+//    return glass;
+//  }
+//
+//  public void setGlass(Glass glass) {
+//    this.glass = glass;
+//  }
 }

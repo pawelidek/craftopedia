@@ -2,8 +2,8 @@ package com.javadevwannabes.craftopedia.domain.jsonapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 //import com.javadevwannabes.craftopedia.domain.Category;
-import com.javadevwannabes.craftopedia.domain.Glass;
 //import com.javadevwannabes.craftopedia.domain.Style;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -14,10 +14,10 @@ public class BeerResponse {
 
   @JsonProperty("description")
   private String description;
-//
-//  @JsonProperty("abv")
-//  private double abv;
-//
+
+  @JsonProperty("abv")
+  private double abv;
+
 //  @JsonProperty("isOrganic")
 //  private boolean isOrganic;
 //
@@ -38,9 +38,9 @@ public class BeerResponse {
 //
 //  @JsonProperty("style")
 //  private Style style;
-
-  @JsonProperty("glass")
-  private Glass glass;
+//
+//  @JsonProperty("glass")
+//  private Glass glass;
 
   public String getName() {
     return name;
@@ -57,15 +57,15 @@ public class BeerResponse {
   public void setDescription(String description) {
     this.description = description;
   }
-//
-//  public double getAbv() {
-//    return abv;
-//  }
-//
-//  public void setAbv(double abv) {
-//    this.abv = abv;
-//  }
-//
+
+  public double getAbv() {
+    return abv;
+  }
+
+  public void setAbv(double abv) {
+    this.abv = abv;
+  }
+
 //  public boolean isOrganic() {
 //    return isOrganic;
 //  }
@@ -121,21 +121,21 @@ public class BeerResponse {
 //  public void setStyle(Style style) {
 //    this.style = style;
 //  }
-
-  public Glass getGlass() {
-    return glass;
-  }
-
-  public void setGlass(Glass glass) {
-    this.glass = glass;
-  }
+//
+//  public Glass getGlass() {
+//    return glass;
+//  }
+//
+//  public void setGlass(Glass glass) {
+//    this.glass = glass;
+//  }
 
   @Override
   public String toString() {
     return "BeerResponse{" +
         "name='" + name + '\'' +
         ", description='" + description + '\'' +
-//        ", abv=" + abv +
+        ", abv=" + abv +
 //        ", isOrganic=" + isOrganic +
 //        ", isRetired=" + isRetired +
 //        ", smallIconURL='" + smallIconURL + '\'' +
@@ -143,7 +143,7 @@ public class BeerResponse {
 //        ", largeIconURL='" + largeIconURL + '\'' +
 //        ", category=" + category +
 //        ", style=" + style +
-        ", glass=" + glass +
+//        ", glass=" + glass +
         '}';
   }
 }
