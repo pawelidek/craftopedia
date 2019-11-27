@@ -1,84 +1,46 @@
-package com.javadevwannabes.craftopedia.domain;
+package com.javadevwannabes.craftopedia.domain.jsonapi;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-@Table(name = "beers")
-public class Beer {
+//import com.javadevwannabes.craftopedia.domain.Category;
+//import com.javadevwannabes.craftopedia.domain.Style;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id")
-  private Long id;
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class BeerResponse {
 
-  @NotNull
-  @Column(name = "name")
+  @JsonProperty("name")
   private String name;
 
-  @Column(name = "description", columnDefinition = "text")
+  @JsonProperty("description")
   private String description;
 
+  @JsonProperty("abv")
   private double abv;
 
+//  @JsonProperty("isOrganic")
 //  private boolean isOrganic;
 //
+//  @JsonProperty("isRetired")
 //  private boolean isRetired;
 //
+//  @JsonProperty("smallIconURL")
 //  private String smallIconURL;
 //
+//  @JsonProperty("mediumIconURL")
 //  private String mediumIconURL;
 //
+//  @JsonProperty("largeIconURL")
 //  private String largeIconURL;
-
-  //  @ManyToOne(cascade = CascadeType.ALL)
-//  @JoinColumn(name = "category_id")
+//
+//  @JsonProperty("cat")
 //  private Category category;
 //
-//  @ManyToOne(cascade = CascadeType.ALL)
-//  @JoinColumn(name = "style_id")
+//  @JsonProperty("style")
 //  private Style style;
 //
-//  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
-//      CascadeType.DETACH})
-//  @JoinColumn(name = "glass_id")
+//  @JsonProperty("glass")
 //  private Glass glass;
-//
-  public Beer(@NotNull String name, String description, double abv
-//      ,boolean isOrganic,
-//      boolean isRetired, String smallIconURL, String mediumIconURL, String largeIconURL,
-//      Category category,
-//      Style style,
-//      Glass glass
-  ) {
-    this.name = name;
-    this.description = description;
-    this.abv = abv;
-//    this.isOrganic = isOrganic;
-//    this.isRetired = isRetired;
-//    this.smallIconURL = smallIconURL;
-//    this.mediumIconURL = mediumIconURL;
-//    this.largeIconURL = largeIconURL;
-//    this.category = category;
-//    this.style = style;
-//    this.glass = glass;
-  }
-
-  public Beer() {
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
 
   public String getName() {
     return name;
@@ -159,7 +121,7 @@ public class Beer {
 //  public void setStyle(Style style) {
 //    this.style = style;
 //  }
-
+//
 //  public Glass getGlass() {
 //    return glass;
 //  }
@@ -167,4 +129,21 @@ public class Beer {
 //  public void setGlass(Glass glass) {
 //    this.glass = glass;
 //  }
+
+  @Override
+  public String toString() {
+    return "BeerResponse{" +
+        "name='" + name + '\'' +
+        ", description='" + description + '\'' +
+        ", abv=" + abv +
+//        ", isOrganic=" + isOrganic +
+//        ", isRetired=" + isRetired +
+//        ", smallIconURL='" + smallIconURL + '\'' +
+//        ", mediumIconURL='" + mediumIconURL + '\'' +
+//        ", largeIconURL='" + largeIconURL + '\'' +
+//        ", category=" + category +
+//        ", style=" + style +
+//        ", glass=" + glass +
+        '}';
+  }
 }
